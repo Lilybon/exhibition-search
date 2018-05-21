@@ -1,0 +1,23 @@
+html, body, ul, li, a, p, h1, h2{margin: 0px; padding: 0px}
+html, body{height: 100%;}
+body{color: rgb(85, 85, 85);}
+ul, li{display: inline; list-style: none;}
+ul, li, a{text-decoration: none;}
+img{max-width: 100%; height: auto;}
+#header h1, .search-option{font-weight: bold;}
+#header h1{padding: 0px 20px; background-color: #2fba8e; color: #eee; font-size: 1.3em; line-height: 2em;}
+#wrapper{max-width: 1200px; margin: 30px auto; padding: 0px 5px;}
+#footer{position: absolute; bottom: 0; width: 100%; background-color: #1f2326; color: #57626a; box-sizing: border-box; padding-top: 30px;}
+#footer h2{text-align: center; font-size: 1em; font-weight: normal;}
+.mgt10{margin-top: 10px;}
+span[data-group="city"]{color: #007bff;}
+.selected-city-dropdown, .selected-toggle, span[data-group="city"], .search-option ul li{cursor: pointer;}
+.btn{color: #8e8e8e; text-align: left; font-size: 14px; border: 1px solid #ccc; line-height: 1.42; border-radius: 4px;}
+.btn:focus, .btn:hover{box-shadow: none; background-color: #ebebeb; border-color: #adadad;}
+.search-option{padding: 20px; border: solid 1px #eee; box-shadow: 0 1px 2px rgba(0,0,0,0.2);}
+.search-option ul li, .dropdown-menu{font-size: 13px;}
+.select-city, .current, .selected-toggle:hover, span[data-group="city"]:hover{color: #2fba8e;}
+.select-city{position: relative; display: inline-block;}
+.selected-toggle{color: #ccc; border: 1px solid #ccc; border-radius: 3px; padding: 0 3px;}
+.selected-toggle:hover{border-color: #2fba8e;}
+.dropdown-menu{position: absolute; left: 0px; width: 450px; color: rgb(85, 85, 85); padding: 15px; box-shadow: 0 6px 12px rgba(0,0,0,0.175);}
