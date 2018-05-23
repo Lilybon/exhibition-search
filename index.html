@@ -26,7 +26,7 @@
                   <span class="selected-city">全台灣</span>
                   <i class="selected-toggle fas fa-angle-down"></i>
                 </span>
-                <div class="dropdown-menu">
+                <div class="dropdown-menu ct-pick">
                   <div class="position">
                     <span>全部 <i class="fas fa-angle-double-right"></i></span>
                     <span data-group="city">全台灣</span>
@@ -91,13 +91,24 @@
               </ul>
             </div>
             <div class="col-6">
-              <i class="far fa-calendar-alt"></i>
-              <span class="title">區間從：</span>
-              <span class="btn" data-id="daterangepicker"></span>
+                <i class="far fa-calendar-alt"></i>
+                <span class="title">區間從：</span>
+                <div class="date-range-selector">
+                  <span class="btn" data-id="daterangepicker"></span>
+                  <div class="dropdown-menu dt-pick">
+                    <div class="calendar-left">
+
+                    </div>
+                    <div class="calendar-right">
+
+                    </div>
+                  </div>
+                </div>
             </div>
           </div>
           <div class="row mgt10">
             <div class="col">
+              <span style="padding: 8px 8px"></span>
               <span>排序依：</span>
             </div>
           </div>
@@ -105,16 +116,66 @@
       </section>
       <section>
         <div class="container">
-
+          <div class="search-content">
+            <div class="row"></div>
+            <div class="row"></div>
+            <div class="row"></div>
+          </div>
+          <div class="pager">
+            <ul class="pagination">
+              <li class="page-next">
+                <strong alt="分頁-">第一頁</strong>
+              </li>
+              <li class="page-next">
+                <strong alt="分頁-">上一頁</strong>
+              </li>
+              <li class="page-number">
+                <strong alt="分頁-1">1</strong>
+              </li>
+              <li class="page-number">
+                <strong alt="分頁-2">2</strong>
+              </li>
+              <li class="page-number">
+                <strong alt="分頁-3">3</strong>
+              </li>
+              <li class="page-number">
+                <strong alt="分頁-4">4</strong>
+              </li>
+              <li class="page-number">
+                <strong alt="分頁-5">5</strong>
+              </li>
+              <li class="page-number">
+                <strong alt="分頁-6">6</strong>
+              </li>
+              <li class="page-number">
+                <strong alt="分頁-7">7</strong>
+              </li>
+              <li class="page-number">
+                <strong alt="分頁-8">8</strong>
+              </li>
+              <li class="page-number">
+                <strong alt="分頁-9">9</strong>
+              </li>
+              <li class="page-next">
+                <strong alt="分頁-">下一頁</strong>
+              </li>
+              <li class="page-next">
+                <strong alt="分頁-">最後頁</strong>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
     </div>
     <div id="footer">
       <h2><a href="https://github.com/Lilybon" target="_blank">Lilybon</a>ⓒ2018 All Rights Reserved.</h2>
     </div>
+    <div class="go-top">
+      <i class="fas fa-chevron-circle-up"></i>
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="js\search-option-function.js"></script>
-    <!--<script src="js\get-api-data.js"></script>-->
+    <script src="js\get-api-data.js"></script>
   </body>
 </html>

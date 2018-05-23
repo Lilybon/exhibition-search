@@ -13,7 +13,7 @@ function appendZero(num){
 
 function dateRangeFillIn(){ // Instruction: Fill in the default date range of daterangepicker initially
   var dateRangePicker = yyyy + "-" + mm + "-" + dd + " ~ " + (yyyy + 3) + "-" + mm + "-" + dd; // 3 years range default
-  $('[data-id="daterangepicker"]').html(dateRangePicker);
+  $('[data-id="daterangepicker"]').text(dateRangePicker);
 }
 
 function dateRangeChange(time){ // Instruction: Change date Range by Approximate Time
@@ -78,18 +78,45 @@ function dateRangeChange(time){ // Instruction: Change date Range by Approximate
 }
 
 $(function() { // Run when the DOM is ready
+
   $('[data-time]').click(function() { // Instruction: Control "when to go" list item's current class
     $('[data-time], .current').removeClass("current");
     $(this).addClass("current");
     apr_time = $(this).text();
     dateRangeChange(apr_time);
   });
-  $('.selected-city-dropdown').click(function() {
-    $('.dropdown-menu').toggle();
+
+  $(window).scroll(function(){
+        if ($(this).scrollTop() > 100) {
+            $('.go-top').fadeIn();
+        } else {
+            $('.go-top').fadeOut();
+        }
   });
+
+  $('.go-top').click(function(){
+    $('html,body').animate({scrollTop:0},'slow');
+  });
+
+  $('.selected-city-dropdown').click(function(e) {
+    e.stopPropagation(); //阻止事件冒泡到父元素
+    $('.dropdown-menu.ct-pick').toggle();
+  });
+
+  $('[data-id="daterangepicker"]').click(function(e) {
+    e.stopPropagation();
+    $('.dropdown-menu.dt-pick').toggle();
+  });
+
+  $(document).click( function(){
+        $('.dropdown-menu.ct-pick').hide();
+        $('.dropdown-menu.dt-pick').hide();
+    });
+
   $('[data-group="city"]').click(function(){
     var citySelected = $(this).html();
     $('.selected-city').html(citySelected);
     $('.dropdown-menu').toggle();
   });
+
 });

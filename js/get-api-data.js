@@ -10,9 +10,12 @@ $(document).ready(function(){
       c+="<p>" + this.showUnit + "</p>";
       c+="<p>" + this.webSales + "</p>";
       c+="<p>" + this.startDate + "~"  + this.endDate + "</p>";
-      $(".container").append(c);
+      $(".search-content").append(c);
       });
       },
-      error:function(){console.log("fail")}
+      error:function(){
+        console.log("fail");
+        alert("請求API失敗，請重新整理頁面！");
+      }
     })
 });
