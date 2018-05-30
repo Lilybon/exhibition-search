@@ -94,7 +94,7 @@ function renderDataOnPage(data, pn){ //Render on HTML elements
 
     for(var i = (pn-1)*pageSize; i <= last_index; i ++){
       var c ='';
-      var link = ((data[i].sourceWebPromote != "") ? data[i].sourceWebPromote : "javascript: void(0)");
+      var link = ((data[i].sourceWebPromote != "" && typeof(data[i].sourceWebPromote) != "undefined" && data[i].sourceWebPromote != "null") ? data[i].sourceWebPromote : "javascript: void(0)");
       var desc_fix = data[i].descriptionFilterHtml.replace(/(?:\\[rn])+/g, " ");
       c += '<!--一項 start-->' +
             '<section>' +
@@ -169,8 +169,8 @@ function getAPIData(){
         var pageTotal = Math.ceil(totalCount / pageSize);
         if($(this).attr('data-id') == "pager-first-btn"){pn = 1;}
         else if($(this).attr('data-id') == "pager-last-btn"){pn = pageTotal;}
-        else if($(this).attr('data-id') == "pager-previous-btn"){pn = ((pn == 1)? pn : pn - 1);}
-        else if($(this).attr('data-id') == "pager-next-btn"){pn = ((pn == pageTotal)? pn : pn + 1);}
+        else if($(this).attr('data-id') == "pager-previous-btn"){pn = ((pn == 1)? 1 : pn - 1);}
+        else if($(this).attr('data-id') == "pager-next-btn"){pn = ((pn == pageTotal)? pageTotal : pn + 1);}
         else{alert("頁碼發生問題，請回報至我的github"); return false;}
         paginationGenerator(data, pn);
         renderDataOnPage(data, pn);
