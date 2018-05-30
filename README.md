@@ -3,7 +3,7 @@
 
 demo
 ----------
-[展覽資訊查詢網站](https://lilybon.github.io/exhibition_search/)
+[展覽資訊查詢網站](https://lilybon.github.io/exhibition-search/)
 
 API連結
 ----------
