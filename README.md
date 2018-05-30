@@ -3,7 +3,7 @@
 
 demo
 ----------
-[展覽資訊查詢網站](https://lilybon.github.io/fgo_christmas_3rd/)
+[展覽資訊查詢網站](https://lilybon.github.io/exhibition_search/)
 
 API連結
 ----------
