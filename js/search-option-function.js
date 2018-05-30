@@ -77,7 +77,15 @@ function dateRangeChange(time){ // Instruction: Change date Range by Approximate
   }
 }
 
-$(function() { // Run when the DOM is ready
+$(document).ready(function() { // Run when the DOM is ready
+  $('.btn[data-id="daterangepicker"]').daterangepicker(); // Change little stuff on dateRangePicker (div-input available)
+  $('.applyBtn.btn.btn-sm.btn-primary').click(function(){ //困境: 沒辦法擅自改別人的插件內容,導致何時去和區間從的功能沒辦法做連動
+    var dateRange = $('[data-id="daterangepicker"]');
+    var drp_str = $('.drp-selected').text();
+    var drp_start = drp_str.substr(0,10).replace(/(\d\d)\/(\d\d)\/(\d{4})/, "$3-$1-$2"); //用re重新排序格式
+    var drp_end = drp_str.substr(13,10).replace(/(\d\d)\/(\d\d)\/(\d{4})/, "$3-$1-$2");
+    dateRange.text(drp_start + " ~ " + drp_end);
+  });
 
   $('[data-time]').click(function() { // Instruction: Control "when to go" list item's current class
     $('[data-time], .current').removeClass("current");
@@ -103,15 +111,9 @@ $(function() { // Run when the DOM is ready
     $('.dropdown-menu.ct-pick').toggle();
   });
 
-  $('[data-id="daterangepicker"]').click(function(e) {
-    e.stopPropagation();
-    $('.dropdown-menu.dt-pick').toggle();
+  $(document).click(function(){
+      $('.dropdown-menu.ct-pick').hide();
   });
-
-  $(document).click( function(){
-        $('.dropdown-menu.ct-pick').hide();
-        $('.dropdown-menu.dt-pick').hide();
-    });
 
   $('[data-group="city"]').click(function(){
     var citySelected = $(this).html();

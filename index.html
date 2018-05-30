@@ -94,15 +94,8 @@
                 <i class="far fa-calendar-alt"></i>
                 <span class="title">區間從：</span>
                 <div class="date-range-selector">
-                  <span class="btn" data-id="daterangepicker"></span>
-                  <div class="dropdown-menu dt-pick">
-                    <div class="calendar-left">
-
-                    </div>
-                    <div class="calendar-right">
-
-                    </div>
-                  </div>
+                  <span class="btn" data-id="daterangepicker"><!--daterange--></span>
+                  <!--使用外掛dateRangePicker-->
                 </div>
             </div>
           </div>
@@ -117,51 +110,90 @@
       <section>
         <div class="container">
           <div class="search-content">
-            <div class="row"></div>
-            <div class="row"></div>
-            <div class="row"></div>
+            <!--一項 start-->
+            <!--
+            <section>
+              <div class="row" data-id="event-list">
+                <div class="col-sm-12">
+                  <div class="media">
+                    <div class="col-sm-3 pic">
+                      <image src="./images/not_found.jpg"/>
+                    </div>
+                    <div class="col-sm-9 row">
+                      <div class="col-sm-10 content">
+                        <h3 class="media-heading">
+                          <a href="http://thcdc.hakka.gov.tw/wSite/ct?xItem\u003d13659\u0026ctNode\u003d1077\u0026mp\u003d1" target="_blank">
+                            第二特展室：新開聚落的變遷暨鯉魚潭水庫開發史特展
+                          </a>
+                        </h3>
+                        <p class="media-top">
+                          <span><i class="fas fa-map-marker-alt"></i>苗栗縣銅鑼鄉銅科南路6號</span>
+                          <span>
+                            <i class="far fa-clock"></i>
+                            <span>2018/01/01</span>
+                            <span> ~ </span>
+                            <span>2018/08/15</span>
+                        </span>
+                        </p>
+                        <p class="desc">以不同面向的敘事方式為經，以多面貌的人群遷徙與物質變動為緯，交織出新開聚落的過去、現在與未來。來了解不同族群在臺三線開山打林奮鬥之精神，並讓社會大眾認識臺三線客庄人文、物產之豐饒。</p>
+                      </div>
+                      <div class="col-sm-2 extra-area">
+                        <div>
+                          <img src="./images/google-maps.png" alt="點我查看地圖" title="點我查看地圖" style="max-width: 50px;" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            -->
+            <!--一項 end-->
+            </div>
           </div>
           <div class="pager">
             <ul class="pagination">
-              <li class="page-next">
+              <!--
+              <li class="page-next" data-id="pager-first-btn">
                 <strong alt="分頁-">第一頁</strong>
               </li>
-              <li class="page-next">
+              <li class="page-next" data-id="pager-previous-btn">
                 <strong alt="分頁-">上一頁</strong>
               </li>
-              <li class="page-number">
+              <li class="page-number" data-value="1">
                 <strong alt="分頁-1">1</strong>
               </li>
-              <li class="page-number">
+              <li class="page-number" data-value="2">
                 <strong alt="分頁-2">2</strong>
               </li>
-              <li class="page-number">
+              <li class="page-number" data-value="3">
                 <strong alt="分頁-3">3</strong>
               </li>
-              <li class="page-number">
+              <li class="page-number" data-value="4">
                 <strong alt="分頁-4">4</strong>
               </li>
-              <li class="page-number">
+              <li class="page-number" data-value="5">
                 <strong alt="分頁-5">5</strong>
               </li>
-              <li class="page-number">
+              <li class="page-number" data-value="6">
                 <strong alt="分頁-6">6</strong>
               </li>
-              <li class="page-number">
+              <li class="page-number" data-value="7">
                 <strong alt="分頁-7">7</strong>
               </li>
-              <li class="page-number">
+              <li class="page-number" data-value="8">
                 <strong alt="分頁-8">8</strong>
               </li>
-              <li class="page-number">
+              <li class="page-number" data-value="9">
                 <strong alt="分頁-9">9</strong>
               </li>
-              <li class="page-next">
+              <li class="page-next" data-id="pager-next-btn">
                 <strong alt="分頁-">下一頁</strong>
               </li>
-              <li class="page-next">
+              <li class="page-next" data-id="pager-last-btn">
                 <strong alt="分頁-">最後頁</strong>
               </li>
+            -->
             </ul>
           </div>
         </div>
@@ -175,7 +207,17 @@
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!--daterangepicker required-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
     <script src="js\search-option-function.js"></script>
     <script src="js\get-api-data.js"></script>
+
+    <!--google map required-->
+    <script src="js\look-google-map.js"></script>
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh0oDgyc2jXoqMG9_BVJgTWXhirFArFTI&callback=initMap" async defer></script>-->
   </body>
 </html>

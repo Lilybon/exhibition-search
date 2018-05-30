@@ -2,32 +2,41 @@ html, body, ul, li, a, p, h1, h2{margin: 0px; padding: 0px}
 html, body{height: 100%;}
 body{color: rgb(85, 85, 85);}
 ul, li{display: inline; list-style: none;}
-ul, li, a{text-decoration: none;}
+ul, li, a, a:hover{text-decoration: none;}
 img{max-width: 100%; height: auto;}
-#header h1, .search-option{font-weight: bold;}
+#header h1, .search-option, .media-heading{font-weight: bold;}
 #header h1{padding: 0px 20px; background-color: #2fba8e; color: #eee; font-size: 1.3em; line-height: 2em;}
 #wrapper{max-width: 1200px; margin: 30px auto; padding: 0px 5px;}
 #footer{width: 100%; background-color: #1f2326; color: #57626a; box-sizing: border-box; padding-top: 30px;}
 #footer h2{text-align: center; font-size: 1em; font-weight: normal;}
 .mgt10{margin-top: 10px;}
-.select-city, .date-range-selector{position: relative; display: inline-block;}
+.select-city, .date-range-selector, span[data-id="daterangepicker"]{position: relative; display: inline-block;}
 .dropdown-menu{position: absolute; display: none; color: rgb(85, 85, 85); left: 0px;}
-span[data-group="city"]{color: #ccc; color: #007bff;}
-.selected-city-dropdown, .selected-toggle, span[data-group="city"], .search-option ul li, .pagination li, .go-top{cursor: pointer;}
-.selected-toggle, .pagination > .page-number{border: 1px solid #ccc; border-radius: 3px;}
-.btn{color: #8e8e8e; text-align: left; font-size: 14px; border: 1px solid #ccc; line-height: 1.42; border-radius: 4px;}
+span[data-group="city"]{color: #007bff;}
+.selected-city-dropdown, .selected-toggle, span[data-group="city"], .search-option ul li, .pagination li, .go-top, img[alt="點我查看地圖"]{cursor: pointer;}
+.selected-toggle, .pagination > .page-number, .btn{border: 1px solid #ccc; border-radius: 3px;}
+.btn{color: #8e8e8e; text-align: left; line-height: 1.42;}
 .btn:focus, .btn:hover{box-shadow: none; background-color: #ebebeb; border-color: #adadad;}
 .search-option{padding: 20px; border: solid 1px #eee; box-shadow: 0 1px 2px rgba(0,0,0,0.2);}
-.search-option ul li, .dropdown-menu{font-size: 13px;}
-.select-city, .current, .selected-toggle:hover, span[data-group="city"]:hover{color: #2fba8e;}
+.search-option ul li, .dropdown-menu, .media-top{font-size: 13px;}
+ .desc, .btn{font-size: 14px;}
+.select-city, .current, .selected-toggle:hover, span[data-group="city"]:hover, .media-heading a:hover{color: #2fba8e;}
 .selected-toggle{color: #ccc; padding: 0 3px;}
 .selected-toggle:hover{border-color: #2fba8e;}
 .dropdown-menu.ct-pick{width: 450px; padding: 15px; box-shadow: 0 6px 12px rgba(0,0,0,0.175);}
-.dropdown-menu.dt-pick{}
+.container{margin-top: 25px;}
 .pager{text-align: center;}
 .pager ul{display: inline-block;}
 .pagination{margin: 20px 0;}
 .pagination li{padding: 0px 10px; margin-right: 10px;}
-.pagination > .page-number:hover{color: #fff; background-color: #2fba8e; border-color: #279c77;}
+.pagination > .page-number:hover{background: #ebebeb;}
+.pagination > .page-number.active{color: #fff; background-color: #2fba8e; border-color: #279c77;}
 .pagination > .page-next:hover{color: #2fba8e;}
 .go-top{display:none; font-size: 50px; position: fixed; right: 20px; bottom: 50px;}
+.media{padding-bottom: 25px; margin-bottom: 25px;}
+.media-heading{overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.media-heading a{color: #333;}
+.pic{max-width: 167.6px;}
+.media-top, .desc{color: #888;}
+.media-top > span{margin-right:5px;}
+.desc{margin: 20px 0px 10px 0px; overflow: hidden; height: 42px; line-height: 1.5em;}
