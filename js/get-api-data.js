@@ -94,7 +94,7 @@ function renderDataOnPage(data, pn){ //Render on HTML elements
 
     for(var i = (pn-1)*pageSize; i <= last_index; i ++){
       var c ='';
-      var link = ((data[i].sourceWebPromote != "" && typeof(data[i].sourceWebPromote) != "undefined" && data[i].sourceWebPromote != "null") ? data[i].sourceWebPromote : "javascript: void(0)");
+      var link = ((data[i].sourceWebPromote != "" && (data[i].sourceWebPromote != "null") && typeof(data[i].sourceWebPromote) != "undefined") ? data[i].sourceWebPromote : "javascript: void(0)");
       var desc_fix = data[i].descriptionFilterHtml.replace(/(?:\\[rn])+/g, " ");
       c += '<!--一項 start-->' +
             '<section>' +
@@ -138,10 +138,16 @@ function getAPIData(){
   var url ="https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=6";
   console.log("Ajax準備發送要求...");
 
-  $.ajax({
+  var currentRequest = $.ajax({
     url: url,
     type: "GET",
     dataType: "json",
+    beforeSend:function(){
+      if(currentRequest != null){
+        currentRequest.abort();
+        console.log("已取消前一個Ajax");
+      }
+    },
     success:function(data){
       console.log("Ajax請求發出且成功收到伺服器回應！");
 
@@ -156,13 +162,13 @@ function getAPIData(){
       paginationGenerator(data, pn = 1); // First time pagination made
       renderDataOnPage(data, pn = 1); // First time render
 
-      $(document).on("click", 'li.page-number', function(e){ //原本使用click(...), 但改變後的DOM無法被點選(頁碼失效),改用on(click,...)
-        var number = parseInt($(this).attr('data-value'));
+      $('ul.pagination').unbind("click").on("click", 'li.page-number', function (e){ //使用click(...)的話改變後的DOM無法被套用(listener沒被新增),改用on(click,...)
+        var number = parseInt($(this).attr('data-value'));                   //加上一個unbibd刪除重複綁定的click listener(每次$.ajax都會遺留多餘的listener)
         paginationGenerator(data, pn = number);
         renderDataOnPage(data, pn = number);
       });
 
-      $(document).on("click", 'li.page-next', function(e){
+      $('ul.pagination').unbind("click").on("click", 'li.page-next', function(e){
         var pn = parseInt($('.page-number.active').attr('data-value')); // 即將跳轉頁數, 以目前所在頁數初始化
         var totalCount = data.length;
         var pageSize = 10;
@@ -184,7 +190,5 @@ function getAPIData(){
 
 $(document).ready(function(){
     getAPIData();
-    $('[data-group="city"]').click(getAPIData);
-    $('[data-time]').click(getAPIData);
-    $('.applyBtn.btn.btn-sm.btn-primary').click(getAPIData);
+    $('[data-group="city"], [data-time], .applyBtn.btn.btn-sm.btn-primary').click(getAPIData);
 });
